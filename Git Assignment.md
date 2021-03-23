@@ -4,36 +4,74 @@ Baixe o arquivo [handson.zip] (handson.zip) e descompacte-o A pasta handson é u
 
 As caixas vazias representam o conteúdo que você precisa preencher e postar em seu repositório privado
 
-Descreva qual é a saída dos seguintes comandos
+1. Descreva qual é a saída dos seguintes comandos
 git branch
 git checkout BRANCH_NAME (USE THE NAME OF AN EXISTING BRANCH)
 git log --decorate
 
-
-Tente usar git log --graph --all. O que acontece?
-
-
-Use git diff BRANCH_NAME para ver as diferenças de um ramo e do ramo atual. Sumarize as diferenças do master e do outro ramo.
+Resposta: o primeiro comando apresenta as branchs exitentes. O segundo comando muda pra branch (no nosso exemplo: feature-foo ) e o terceiro mostra o log dessa branch
 
 
-Escreva uma sequencia de comandos para mesclar o ramo não-master no master
+2. Tente usar git log --graph --all. O que acontece?
+Resposta: vai mostrar a linha do tempo dos commits, apresentando cada branch que foi criada e cada commit. 
+
+PS C:\Users\hhfs\Desktop\test\handson\handson> git log --graph --all
+* commit f67f266cf420735187053f10d32e2c0f7cbc5a43 (master)
+| Author: Igor Steinmacher <igorsteinmacher@gmail.com>
+| Date:   Fri Aug 24 15:30:05 2018 -0700
+|
+|     Adding class B skeleton
+|
+| * commit a70a8e9d3c5390e367028faf033f2a9ef03d2e91 (HEAD -> feature-foo)
+|/  Author: Igor Steinmacher <igorsteinmacher@gmail.com>
+|   Date:   Fri Aug 24 15:29:22 2018 -0700
+|
+|       Adding header of method foo()
+|
+* commit 309b0d73ff9c2163591c9e96e307fe61b4c8f58a
+| Author: Igor Steinmacher <igorsteinmacher@gmail.com>
+| Date:   Fri Aug 24 15:27:16 2018 -0700
+|
+|     Adding class A skeleton
+|
+* commit 9c1eeb8901b0926ce7fa13cc6ce0a1876fc4179b
+  Author: Igor Steinmacher <igorsteinmacher@gmail.com>
+  Date:   Fri Aug 24 15:26:44 2018 -0700
+
+      Creating all files (all empty)
 
 
-Escreva um comando (ou sequência) para (i) criar um novo ramo chamado math (do master) e (ii) mudar para este ramo
+3. Use git diff BRANCH_NAME para ver as diferenças de um ramo e do ramo atual. Sumarize as diferenças do master e do outro ramo.
+Reposta: A diferença entre feature-foo e Master é que foi adicionado um método na classe A e na master tem o método B. 
 
 
-Edite B.java adicionando o código abaixo ao conteúdo do arquivo
+
+4. Escreva uma sequencia de comandos para mesclar o ramo não-master no master
+Reposta: 
+	1) git checkout master
+	2) git merge feature-foo 
+
+
+5. Escreva um comando (ou sequência) para (i) criar um novo ramo chamado math (do master) e (ii) mudar para este ramo
+Resposta: git checkout -b outra
+
+
+6. Edite B.java adicionando o código abaixo ao conteúdo do arquivo
 System.out.println("I know math, look:")
 System.out.println(2+2)
-Escreva o comando (ou sequencia) para realizar o commit de suas mudanças
+
+7. Escreva o comando (ou sequencia) para realizar o commit de suas mudanças
+	git add *
+	git commit -m "adicionando linhas"
+	git push
 
 
-Volte para o branch master e mude B.java adicionando o seguinte código-fonte (confirme sua mudança para master):
+8. Volte para o branch master e mude B.java adicionando o seguinte código-fonte (confirme sua mudança para master):
 System.out.println("Hello World")
 Escreva uma sequência de comando para mesclar o branch math em master e descreva o que aconteceu
+	git checkout main
 
-
-Escreva um conjunto de comandos para abortar a mesclagem
+9. Escreva um conjunto de comandos para abortar a mesclagem
 
 
 Agora repita o item 9, mas prossiga com a mesclagem manual (Editando B.java). Todas as funções implementadas são necessárias. Explique o seu procedimento
